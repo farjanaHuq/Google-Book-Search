@@ -11,8 +11,9 @@ class Search extends Component{
         books: [],
         bookSearch: ""
     };
+    
     handleFormSubmit = (event) => {
-         event.preventdefault();
+         event.preventDefault();
          API.getBooks(this.state.bookSearch)
          .then(res => {
             console.log(res.data);
@@ -55,7 +56,7 @@ class Search extends Component{
                             <button 
                               type="submit" 
                               class="btn btn-primary" 
-                              onClick={this.props.handleFormSubmit}>Submit</button>
+                              onClick={this.handleFormSubmit}>Submit</button>
                         </form>
                   </div>
               </div>
