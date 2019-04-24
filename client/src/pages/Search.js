@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
+
 
 
 
@@ -14,12 +14,12 @@ class Search extends Component{
     
     handleFormSubmit = (event) => {
          event.preventDefault();
-         API.getBooks(this.state.bookSearch)
-         .then(res => {
-            console.log(res.data);
-            this.setState({books : res.data})
-         })
-         .catch(err => console.log(err));
+        //  API.getBooks(this.state.bookSearch)
+        //  .then(res => {
+        //     console.log(res.data);
+        //     this.setState({books : res.data})
+        //  })
+        //  .catch(err => console.log(err));
     };
 
     handleInputChange = (event) =>{

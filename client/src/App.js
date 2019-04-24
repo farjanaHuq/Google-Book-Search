@@ -1,21 +1,43 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// local components
+import Home from "./pages/Home";
+import Search from "./pages/Search";
+import Saved from "./pages/Saved";
+
+// bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <Router>
+        <div>
+          <Switch>
+            <Route
+              exact path='/'
+              component={Home}
+            />
+            <Route
+              exact path='/Home'
+              component={Home}
+            />
+          </Switch>
+          <Route
+            exact path='/Search'
+            component={Search}
+          />
+          <Route
+            exact path='/Saved'
+            component={Saved}
+          />
+         
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      </Router>
     );
   }
 }
 
 export default App;
+
