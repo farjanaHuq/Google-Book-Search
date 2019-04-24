@@ -17,8 +17,6 @@ router.get("/searchBooks/:query/:inauthorKey", (req, res) => {
 
     axios.get( 
         `https://www.googleapis.com/books/v1/volumes?q=${query}+inauthor:${inauthorKey}&key=${ApiKey}`
-    
-        //   `https://www.googleapis.com/books/v1/volumes?q=${query}&filter=free-ebooks&key=${ApiKey}`
        
         )
       .then(
@@ -28,11 +26,11 @@ router.get("/searchBooks/:query/:inauthorKey", (req, res) => {
 
             for(var i=0; i<results.data.items.length; i++ ){
 
-                console.log("Link :", results.data.items[i].selfLink);
-                console.log("Title",  results.data.items[i].volumeInfo.title);
-                console.log("Description:", results.data.items[i].volumeInfo.description);
-                console.log("Thumbnail:",   results.data.items[i].volumeInfo.imageLinks.thumbnail);
-                console.log("===========================================================================")
+                // console.log("Link :", results.data.items[i].selfLink);
+                // console.log("Title",  results.data.items[i].volumeInfo.title);
+                // console.log("Description:", results.data.items[i].volumeInfo.description);
+                // console.log("Thumbnail:",   results.data.items[i].volumeInfo.imageLinks.thumbnail);
+                // console.log("===========================================================================")
                 resultArr.push({
                       link: results.data.items[i].selfLink,
                       title: results.data.items[i].volumeInfo.title,
@@ -40,10 +38,10 @@ router.get("/searchBooks/:query/:inauthorKey", (req, res) => {
                       thumbnail: results.data.items[i].volumeInfo.imageLinks.thumbnail
                 })
             }
-            console.log("===========================================================================")
-            console.log("===========================================================================")
-            console.log(resultArr);
-            res.json(resultsArr);
+            // console.log("===========================================================================")
+            // console.log("===========================================================================")
+           // console.log(resultArr);
+            res.json(resultArr);
         })
        
       .catch(err => {

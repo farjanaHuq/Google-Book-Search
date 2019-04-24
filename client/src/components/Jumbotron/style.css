@@ -1,0 +1,34 @@
+.jumbotron {
+  min-height: 400px;
+  padding-top: 100px;
+  text-align: center;
+  background-image: url("https://imgur.com/1p5ppkA.jpg");
+  
+}
+p.lead{
+  font-weight: bold;
+  color: 	#708090;
+  
+}
+h1.display-4{
+  font-weight: bold;
+  font-size: 36px; 
+  color: white;
+  text-shadow: 2px 2px 4px #000000
+}
+
+/* #text{
+  background-color: 	#708090;
+  color: #000000;
+  font-size:  40px; 
+  font-weight: bold;
+  margin: 0 auto;
+  width: 50%;
+  height: 20%;
+  text-align: center;
+  position: absolute;
+  padding: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+} */
