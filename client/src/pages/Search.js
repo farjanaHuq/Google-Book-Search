@@ -5,26 +5,7 @@ import SearchBook from "../components/SearchBooks"
 
 class Search extends Component{
 
-    state = {
-        books: [],
-        bookSearch: ""
-    };
     
-    handleFormSubmit = (event) => {
-         event.preventDefault();
-        
-    };
-
-    handleInputChange = (event) => {
-        event.preventDefault();
-         // Destructure the name and value properties off of event.target
-        // Update the appropriate state
-        const {name, value} = event.target;
-        this.setState({
-            [name]:value
-        })
-    }
-
     render(){
         return(
             <div>
