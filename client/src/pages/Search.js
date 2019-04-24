@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
-
-
-
+import SearchBook from "../components/SearchBooks"
 
 class Search extends Component{
 
@@ -14,15 +12,11 @@ class Search extends Component{
     
     handleFormSubmit = (event) => {
          event.preventDefault();
-        //  API.getBooks(this.state.bookSearch)
-        //  .then(res => {
-        //     console.log(res.data);
-        //     this.setState({books : res.data})
-        //  })
-        //  .catch(err => console.log(err));
+        
     };
 
-    handleInputChange = (event) =>{
+    handleInputChange = (event) => {
+        event.preventDefault();
          // Destructure the name and value properties off of event.target
         // Update the appropriate state
         const {name, value} = event.target;
@@ -36,30 +30,9 @@ class Search extends Component{
             <div>
                 <Nav/>
                 <Jumbotron/>
-                <div class="container-fluid bg-light">
-                    <div 
-                        style={{ height: 250, clear: "both", paddingTop: 120, textAlign: "center" }}
-                        class="container">
-                        
-                        <h1>Book Search</h1><li/>
-                        <p>Book</p><li/>
-                        <form>
-                        <div class="form-group" >
-                            <label for="searchBook">Search Your Google Books Here </label>
-                            <input 
-                                name="bookSearch"
-                                value={this.state.bookSearch}
-                                onChange={this.handleInputChange}
-                                placeholder="Search for a book"
-                            />
-                        </div>
-                            <button 
-                              type="submit" 
-                              class="btn btn-primary" 
-                              onClick={this.handleFormSubmit}>Submit</button>
-                        </form>
-                  </div>
-              </div>
+                <SearchBook/>
+               
+           
               <div class = "conteiner-fluid">
                  <div class = "row">
                         <div class = "col-md-3">

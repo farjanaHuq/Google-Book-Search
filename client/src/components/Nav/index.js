@@ -13,10 +13,10 @@ class Nav extends Component{
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                        <a class="nav-link" href="/">Search </a>
+                        <a class="nav-link" href="/Search">Search </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/books">Saved</a>
+                            <a class="nav-link" href="/Saved">Saved</a>
                         </li>
                     </ul>   
                 </div>

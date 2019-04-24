@@ -7,10 +7,8 @@ class Home extends Component{
         return(
             
             <div>
-                <div>
-                    <Nav />
-                </div>
-                <Jumbotron />
+              <Nav />
+              <Jumbotron />     
             </div>
         );
     }
