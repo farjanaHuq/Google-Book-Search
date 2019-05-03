@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Col, Button, FormGroup, Label, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import axios from "axios";
+import BookList from "../BookList"
 
 
 class SearchBook extends Component {
@@ -28,18 +30,31 @@ class SearchBook extends Component {
         event.preventDefault();
         var searchArr = document.getElementById('searchBooks').value;
         var splitArr = searchArr.split(" ");
-       
+        
         console.log("searchArr", searchArr);
         console.log("Splited Arr", splitArr);
         
-        var bookName = splitArr[0];;
+        var bookName = '';
         var authorName = splitArr[splitArr.length-1];
-        // for(var i=0; i<splitArr.length-1; i++){
-        //       bookName = bookName + splitArr[i];         
-        // }
-        console.log("FOO");
+        for(var i=0; i<splitArr.length-1; i++){
+              bookName = bookName + splitArr[i];         
+        }
+        console.log("===============================");
         console.log("book name", bookName);
         console.log("author name", authorName);
+
+        axios.get(`api/searchBooks/${bookName}/${authorName}`)
+            .then(
+                resp => {
+                console.log(resp.data);
+                this.setState({
+                    books : resp.data
+                })
+            })     
+            .catch(err => {
+                console.log(err);
+            // resp.status(422).json({error: err});
+        });
       }
     
     render() {
@@ -69,7 +84,24 @@ class SearchBook extends Component {
                             </FormGroup>
                         </form>
                     </div>
+                    
                 </div>
+                if(){}
+                {this.state.books.map(book => {
+             
+                    return (
+                      <BookList book = {book}
+                        // key={book.title}
+                        // title={book.title}
+                        // link={book.link}
+                        // description = {book.description}
+                        // thumbnail={book.thumbnail}
+                      />
+                    );
+                  })}
+               <BookList/>
+                  
+
             </div>
         );
     }
