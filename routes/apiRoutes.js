@@ -52,7 +52,7 @@ router.get("/searchBooks/:query/:inauthorKey", (req, res) => {
 
 //displays all books
 router.get("/books", (req, res) => {
-  db.Book.findAll({})
+  db.Book.find({})
     .then(resp => { 
         console.log(resp);
         res.json(resp);})
