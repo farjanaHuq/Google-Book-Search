@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Button, FormGroup, Label, Input} from 'reactstrap';
+import { Col, Button, FormGroup, Label, Input } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 import axios from "axios";
@@ -14,48 +14,53 @@ class SearchBook extends Component {
             books: [],
             searchBooks: ''
         };
-    
+
         this.handleChange = this.handleChange.bind(this);
-      }
-    
-      handleChange(event) {
-        const {name, value} = event.target;
+    }
+
+
+    handleChange = (e) =>{
         this.setState({
-            [name]:value
-        });
+            [e.target.name]: e.target.value
+        })
+
+    }
     
-      }
-    
-      handleSubmit(event) {
+    onSubmit = (event) => {
         event.preventDefault();
         var searchArr = document.getElementById('searchBooks').value;
         var splitArr = searchArr.split(" ");
-        
+
         console.log("searchArr", searchArr);
         console.log("Splited Arr", splitArr);
-        
+
         var bookName = '';
-        var authorName = splitArr[splitArr.length-1];
-        for(var i=0; i<splitArr.length-1; i++){
-              bookName = bookName + splitArr[i];         
+        var authorName = splitArr[splitArr.length - 1];
+        for (var i = 0; i < splitArr.length - 1; i++) {
+            bookName = bookName + splitArr[i];
         }
         console.log("===============================");
         console.log("book name", bookName);
         console.log("author name", authorName);
+       
+        // this.getBooks(bookName, authorName);
 
         axios.get(`api/searchBooks/${bookName}/${authorName}`)
-            .then(
-                resp => {
+        .then(
+            resp => {
                 console.log(resp.data);
                 this.setState({
-                    books : resp.data
+                    books: resp.data
                 })
-            })     
-            .catch(err => {
-                console.log(err);
+            })
+        .catch(err => {
+            console.log(err);
             // resp.status(422).json({error: err});
         });
-      }
+        
+    }
+    
+    
     
     render() {
         return (
@@ -64,16 +69,16 @@ class SearchBook extends Component {
                     <div className="container">
                         <h1 className="display-4">Search Your Book</h1>
                         {/* <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p> */}
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.onSubmit}>
                             <FormGroup row>
                                 <Label for="searchBooks" sm={2}></Label>
                                 <Col sm={8}>
-                                    <Input 
-                                        type="searchBooks" 
-                                        name="searchBooks" 
+                                    <Input
+                                        type="searchBooks"
+                                        name="searchBooks"
                                         value={this.state.searchBooks}
-                                        onChange={this.handleChange} 
-                                        id="searchBooks" 
+                                        onChange={this.handleChange}
+                                        id="searchBooks"
                                         placeholder="enter the book-name, auhtor-name here" />
                                 </Col>
                             </FormGroup>
@@ -84,23 +89,17 @@ class SearchBook extends Component {
                             </FormGroup>
                         </form>
                     </div>
-                    
+
                 </div>
-                if(){}
-                {this.state.books.map(book => {
-             
+
+                {/* {this.state.books.map(books => {
+                    console.log(books); */}
                     return (
-                      <BookList book = {book}
-                        // key={book.title}
-                        // title={book.title}
-                        // link={book.link}
-                        // description = {book.description}
-                        // thumbnail={book.thumbnail}
-                      />
+                        <BookList books={this.state.books} />
                     );
-                  })}
-               <BookList/>
-                  
+                })}
+                <BookList />
+
 
             </div>
         );
