@@ -21,7 +21,7 @@ router.get("/searchBooks/:query/:inauthorKey", (req, res) => {
       )
       .then(
           results => {
-            // res.json(results.data);
+            //  res.json(results.data);
             var resultArr = [];
 
             for(var i=0; i<results.data.items.length; i++ ){
@@ -34,6 +34,7 @@ router.get("/searchBooks/:query/:inauthorKey", (req, res) => {
                 resultArr.push({
                       link: results.data.items[i].selfLink,
                       title: results.data.items[i].volumeInfo.title,
+                      authors:results.data.items[i].volumeInfo.authors,
                       description: results.data.items[i].volumeInfo.description,
                       thumbnail: results.data.items[i].volumeInfo.imageLinks.thumbnail
                 })
@@ -41,7 +42,7 @@ router.get("/searchBooks/:query/:inauthorKey", (req, res) => {
             // console.log("===========================================================================")
             // console.log("===========================================================================")
            // console.log(resultArr);
-            res.json(resultArr);
+             res.json(resultArr);
         })
        
       .catch(err => {

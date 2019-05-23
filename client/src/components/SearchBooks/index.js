@@ -3,7 +3,8 @@ import { Col, Button, FormGroup, Label, Input } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 import axios from "axios";
-import BookList from "../BookList"
+import BookList from "../BookList";
+
 
 
 class SearchBook extends Component {
@@ -91,16 +92,7 @@ class SearchBook extends Component {
                     </div>
 
                 </div>
-
-                {/* {this.state.books.map(books => {
-                    console.log(books); */}
-                    return (
-                        <BookList books={this.state.books} />
-                    );
-                })}
-                <BookList />
-
-
+                <BookList books={this.state.books} />
             </div>
         );
     }
