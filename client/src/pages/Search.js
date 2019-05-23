@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Nav from "../components/Nav";
-import Jumbotron from "../components/Jumbotron";
 import SearchBook from "../components/SearchBooks"
 
 class Search extends Component{
@@ -10,7 +9,6 @@ class Search extends Component{
         return(
             <div>
                 <Nav/>
-                <Jumbotron/>
                 <SearchBook/>
             </div>
         );

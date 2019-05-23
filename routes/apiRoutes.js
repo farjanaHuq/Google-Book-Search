@@ -55,7 +55,7 @@ router.get("/searchBooks/:query/:inauthorKey", (req, res) => {
 router.get("/books", (req, res) => {
   db.Book.find({})
     .then(resp => { 
-        console.log(resp);
+        // console.log(resp);
         res.json(resp);})
     .catch(function (err) {
         res.json(err);

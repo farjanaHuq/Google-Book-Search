@@ -1,0 +1,9 @@
+.searchBooks{
+    background-color: aliceblue;
+    color: black;
+    font-weight: 14px;
+}
+
+#save-button, #delete-button{
+    margin-right: 5px;
+}
