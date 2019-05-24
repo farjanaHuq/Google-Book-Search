@@ -36,11 +36,10 @@ class SavedBooks extends Component {
     deleteBook = (event, id) => {
         event.preventDefault();
         console.log('bookId', id);
-        axios.delete(`/api/books/${id}`
-            
-          )
+        axios.delete(`/api/books/${id}`)
           .then(function (response) {
             console.log(response);
+            window.location.reload();
           })
           .catch(function (error) {
             console.log(error);

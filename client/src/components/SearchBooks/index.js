@@ -30,7 +30,7 @@ class SearchBook extends Component {
     onSubmit = (event) => {
         event.preventDefault();
         var searchArr = document.getElementById('searchBooks').value;
-        var splitArr = searchArr.split(" ");
+        var splitArr = searchArr.split(",");
 
         console.log("searchArr", searchArr);
         console.log("Splited Arr", splitArr);
