@@ -5,37 +5,62 @@ import ImageCard from '../ImageCard';
 import { ListGroup, ListGroupItem, Button } from 'reactstrap';
 import './style.css';
 import axios from "axios";
+import socketIOClient from 'socket.io-client';
 
 
 class BookList extends Component {
-    booklistStyle = () => {
-        return {
-            border: '1px #ccc solid'
-        }
+    // booklistStyle = () => {
+    //     return {
+    //         border: '1px #ccc solid'
+    //     }
+    // }
+    constructor(props) {
+        super(props);
+        this.state = {     
+            endpoint: "http://localhost:3000/",
+            // message: '',
+            // visible: true
+        };     
     }
 
+
+    //saving books
     saveBook = (event, bookTitle, bookAuthor, bookLink, bookDescription, bookThumbnail) => {
         event.preventDefault();
+        
+        //creating socket
+        const socket = socketIOClient(this.state.endpoint);
+        var message = `${bookTitle} has been saved.`
+      
+        socket.emit('pushNotification', message )
+             
         // console.log('The button was clicked.');
         // console.log('Book', bookTitle, bookAuthor, bookLink, bookDescription, bookThumbnail);
+
+        //rendering books from database
         axios.post('/api/books', {
             title: bookTitle, 
             authors: bookAuthor,  
             description: bookDescription, 
             image: bookThumbnail,
             link: bookLink
-          })
-          .then(function (response) {
+        })
+        .then(function (response) {
             console.log(response);
-          })
-          .catch(function (error) {
+            
+        })
+        .catch(function (error) {
             console.log(error);
-          });
+        });
+        socket.on('pushNotification', function(data){
+            console.log(data);
+            alert(data);
+        }) 
     }
    
     render() {
 
-        console.log("Booklist", this.props.books)
+        // console.log("Booklist", this.props.books)
         return this.props.books.map(book => (
             // console.log(book.title)
             <div>

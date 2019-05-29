@@ -37,4 +37,8 @@ var io = socket(server);
 
 io.on('connection', (socket) => {
     console.log('make socket connection', socket.id);
+    socket.on('pushNotification', function(data){
+      console.log(data);
+      io.sockets.emit('pushNotification', data);
+    });
 })
