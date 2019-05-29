@@ -36,7 +36,7 @@ class BookList extends Component {
     render() {
 
         console.log("Booklist", this.props.books)
-        return this.props.books.map((book, index) => (
+        return this.props.books.map(book => (
             // console.log(book.title)
             <div>
                 <Container >

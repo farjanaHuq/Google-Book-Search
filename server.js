@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
+const socket = require('socket.io');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -28,6 +29,12 @@ app.get("*", (req, res) => {
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googleBooks", { useNewUrlParser: true });
 
 
-app.listen(PORT, () => {
+var server = app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+var io = socket(server);
+
+io.on('connection', (socket) => {
+    console.log('make socket connection', socket.id);
+})
