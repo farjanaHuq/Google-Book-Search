@@ -54,6 +54,7 @@ class BookList extends Component {
         });
         socket.on('pushNotification', function(data){
             console.log(data);
+            console.log('hello');
             alert(data);
         }) 
     }

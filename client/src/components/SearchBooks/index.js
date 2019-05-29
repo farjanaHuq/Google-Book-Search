@@ -57,6 +57,7 @@ class SearchBook extends Component {
             })
         .catch(err => {
             console.log(err);
+            alert('Sorry, Cannot find the book.')
             // resp.status(422).json({error: err});
         });
         
