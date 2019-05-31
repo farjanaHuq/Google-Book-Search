@@ -1,10 +1,15 @@
 #booklistDiv{
     border: 1px 1px dotted;
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
 #description{
-   border: 1px 1px dotted;
+   /* border: 1px 1px dotted; */
    height: 150px;   
    overflow : auto;
+}
+
+#link{
+    position: relative; 
+    display: inline-block; 
 }

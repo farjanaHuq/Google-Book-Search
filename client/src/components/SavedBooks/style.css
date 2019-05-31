@@ -7,3 +7,14 @@
 #save-button, #delete-button{
     margin-right: 5px;
 }
+
+#booklistDiv{
+    border: 1px 1px dotted;
+    margin-bottom: 10px;
+}
+
+#description{
+   /* border: 1px 1px dotted; */
+   height: 150px;   
+   overflow : auto;
+}

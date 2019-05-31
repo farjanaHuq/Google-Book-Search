@@ -94,7 +94,11 @@ class SearchBook extends Component {
                     </div>
 
                 </div>
-                <BookList books={this.state.books} />
+                {!this.state.books.length ? (
+                    <h1 className="text-center lead ">No Books to Display Yet...</h1>
+                ) : (
+                        <BookList books={this.state.books} />
+                    )}
             </div>
         );
     }

@@ -9,17 +9,11 @@ import socketIOClient from 'socket.io-client';
 
 
 class BookList extends Component {
-    // booklistStyle = () => {
-    //     return {
-    //         border: '1px #ccc solid'
-    //     }
-    // }
+  
     constructor(props) {
         super(props);
         this.state = {     
             endpoint: "http://localhost:3000/",
-            // message: '',
-            // visible: true
         };     
     }
 
@@ -72,10 +66,10 @@ class BookList extends Component {
                                 <ImageCard thumbnail={book.thumbnail} />
                             </Col>
                             <Col xs="8">
-                                <ListGroup >
+                                <ListGroup key={book.title}>
                                     <ListGroupItem>Title: {book.title}</ListGroupItem>
                                     <ListGroupItem>Author: {book.authors}</ListGroupItem>
-                                    <ListGroupItem>Link: {book.link}</ListGroupItem>
+                                    <ListGroupItem id="link">Link: {book.link}</ListGroupItem>
                                     <ListGroupItem id="description">Description: {book.description}</ListGroupItem>
                                     <ListGroupItem className="d-flex flex-row justify-content-end">
                                         <Button className="primary" id="save-button" 
@@ -83,7 +77,7 @@ class BookList extends Component {
                                                               book.link, book.description, book.thumbnail)} >Save</Button>
                                         {/* <Button className="secondary" id="delete-button"
                                                    onClick={(e) => this.deleteBook(e, index)}>Delete</Button> */}
-                                        <Button className="danger" id="share-button">Share</Button>
+                                        <Button className="danger" id="share-button" >Share</Button>
                                     </ListGroupItem>
                                 </ListGroup>
                             </Col>
