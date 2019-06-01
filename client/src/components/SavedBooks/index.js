@@ -68,7 +68,7 @@ class SavedBooks extends Component {
       return (this.state.savedBooks.map((book) => (
            
         <div>
-                <>
+              
                     <Container >
                         <div id="booklistDiv">
                             <Row className="d-flex flex-row">
@@ -116,10 +116,10 @@ class SavedBooks extends Component {
                                     </Button>
                                 </Modal.Footer>
                     </Modal>
-                </>
+    
             </div>
             
-            )));
+        )));
     }       
 
 }
